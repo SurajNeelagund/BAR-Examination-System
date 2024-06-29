@@ -1,0 +1,142 @@
+<html>
+    <head>        
+        <style>
+        body {
+            background-image: url("https://images.wsj.net/im-785254/?width=700&height=467");
+            background-size:cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px ;
+        }
+        h1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color:#fff ;
+            border: #fff;
+            border-radius: 5px;
+        }
+
+        form {
+            margin: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            font-family: Georgia, 'Times New Roman', Times, serif ;
+            font-size: large;
+            color: beige;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        select#textgender{ 
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        }
+
+        select#textfulltime{ 
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color:brown;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: medium;
+        }
+
+        button:hover {
+            background-color:crimson;
+        }
+
+        div {
+            font-weight: bold;
+            font-size: medium;
+        }
+    </style></head>
+    <body>
+        <h1>Law Exam Prediction</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Decile1 value:</td>
+                <td><input type="text" name="textdecile1"></td>
+            </tr>
+            <tr>
+                <td>Decile1b value:</td>
+                <td><input type="text" name="textdecile1b"></td>
+            </tr>
+            <tr>
+                <td>Decile3 value:</td>
+                <td><input type="text" name="textdecile3"></td>
+            </tr>
+            <tr>
+                <td>
+                <label for="textgender">Select Gender:</label>
+                </td>
+                <td>
+                <select id="textgender" name="textgender" required>
+                <option></option>
+                <option value=2>Male</option>
+                <option value=1>Female</option>
+                </select><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>LSAT Score:</td>
+                <td><input type="text" name="textlsat"></td>
+            </tr>
+            <tr>
+                <td>Undergraduate GPA:</td>
+                <td><input type="text" name="textugpa"></td>
+            </tr>
+            <tr>
+                <td>
+                <label for="textfulltime">Time Status:</label>
+                </td>
+                <td>
+                <select id="textfulltime" name="textfulltime" required>
+                <option></option>
+                <option value=1>Fulltime</option>
+                <option value=2>Parttime</option>
+                </select><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>College Tier:</td>
+                <td><input type="text" name="texttier"></td>
+            </tr>
+            <tr>
+                <td>Family Income:</td>
+                <td><input type="text" name="textfincome"></td>
+            </tr>
+        </table>
+        
+        <tr>
+            <td><button type="submit" name="buttonsubmit">Submit</button></td>
+        </tr></br>
+        <div >
+            {{result}}</br>
+            {{accuracy}}
+        </div>
+    </form>
+</body>
+</html>
