@@ -39,9 +39,7 @@ def Exam(request):
             pred = model.predict(newdata)
             if pred == 1:
                 result = "Student will Pass"
-            if float(decile1) == 1:
-                result = "Student will Fail"
             else:
-                result = "Student will Pass"
+                result = "Student will Fail"
             return render(request,'Exam.html',context={'result':result,'accuracy':accc})
     return render(request,'Exam.html')
